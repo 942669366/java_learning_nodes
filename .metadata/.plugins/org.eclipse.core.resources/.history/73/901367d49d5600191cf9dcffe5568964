@@ -1,0 +1,10 @@
+package com.itheima.demo02_List接口的特点和实现类;
+
+public class ListDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

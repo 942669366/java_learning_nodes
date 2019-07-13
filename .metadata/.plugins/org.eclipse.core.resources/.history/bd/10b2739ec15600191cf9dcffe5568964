@@ -1,0 +1,10 @@
+package com.itheima.demo07_HashSet存储自定义方式;
+
+public class HashSetDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

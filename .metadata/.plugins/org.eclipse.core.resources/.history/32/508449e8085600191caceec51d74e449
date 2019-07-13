@@ -1,0 +1,84 @@
+package com.itheima.demo09_斗地主案例;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+/*
+ * 斗地主案例实现步骤:
+ * 
+ * 1.生成一副牌(54),54个字符串,保存到集合中
+ * 
+ * 
+ * 2.洗牌(打乱集合中元素的顺序)
+ * 
+ * 
+ * 3.发牌(轮流发)
+ * 
+ * 
+ * 4.看牌(打印集合中元素)
+ * 
+ * ================
+ * 
+ * 5.抢地主.....
+ * 
+ */
+public class DouDiZhuDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//1.生成一副牌
+		ArrayList<String> cards = new ArrayList<String>();
+		//每一张 的花色:♠ ♥ ♣ ♦
+		//每一张的数值: A 2 3 ... 10 J Q K
+		String[] colors = {"♠","♥","♣","♦"};
+		String[] nums = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
+		for (String num : nums) {
+			for (String color : colors) {
+				//组合:color 和 num
+				String card = color+num;
+				cards.add(card);
+			}
+		}
+		//添加大小王
+		cards.add("小S");
+		cards.add("大S");
+		//2.洗牌,Collections叫做集合工具类
+		Collections.shuffle(cards);
+		//3.发牌
+		//定义三个玩家集合.存储各自的牌
+		ArrayList<String> p1 = new ArrayList<String>();
+		ArrayList<String> p2 = new ArrayList<String>();
+		ArrayList<String> p3 = new ArrayList<String>();
+		ArrayList<String> dp = new ArrayList<String>();
+		//循环取出cards集合中的牌 依次保存到三个集合中
+		for (int i = 0; i < cards.size(); i++) {
+			String card = cards.get(i);
+			// i=0 ==>p1
+			// i=1 ==>p2
+			// i=2 ==>p3
+			// i=3 ==>p2
+			// i=53 52 51
+			if(i>=51){
+				dp.add(card);
+			}else{
+				if(i%3 == 0){
+						p1.add(card);
+					}else if(i%3 == 1){
+						p2.add(card);
+					}else{
+						p3.add(card);
+				}
+			}
+			
+		}
+		
+		//4.看牌
+		System.out.println(p1);
+		System.out.println(p2);
+		System.out.println(p3);
+		System.out.println(dp);
+		
+		
+	}
+
+}

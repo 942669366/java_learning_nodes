@@ -1,0 +1,6 @@
+package com.itheima.demo07_HashSet存储自定义方式;
+
+public class Dog {
+	String name;
+	int age;
+}
